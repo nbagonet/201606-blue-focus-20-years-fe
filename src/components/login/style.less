@@ -1,0 +1,197 @@
+@import '../../../node_modules/less-plugin-est/src/all.less';
+@import '../../less/conf.less';
+
+/**
+ * 组件：
+ */
+.login
+{
+    position: relative;
+
+    .padding(30vh/@h,_,_);
+    .box-sizing(border-box);
+    .size(916vh/@h,100%);
+    .margin(_,auto);
+    .display(flex);
+    .flex-direction(column);
+    // logo begin
+    .logo
+    {
+        background: url('@{_i}/44.png') no-repeat 0 0;
+        background-size: cover;
+
+        .size(199vh/@h,97vh/@h);
+        .margin(_,_,10vh/@h,_);
+    }
+    // logo end
+    // intro begin
+    .intro
+    {
+        font-family: 'sszh';
+        font-size: 54vh/@h;
+        line-height: 88/54;
+
+        text-align: right;
+        p
+        {
+            .margin(0);
+        }
+    }
+    // intro end
+    // 表单 begin
+    .login-form
+    {
+        background: url('@{_i}/10.png') no-repeat 50% 100%;
+        background-size: contain;
+
+        .size(100%,1378vh/@h);
+        .margin(30vh/@h,_,_);
+        .box-sizing(border-box);
+        // .absolute(_,0,0,0);
+        .padding(100vh/@h,_,_,40vh/@h);
+        .help{
+          font-family: 'sszh';
+          color:fadeout(@blue, 30%);
+          font-size: 40vh/@h;
+        }
+        .input
+        {
+            line-height: 1;
+
+            .margin(_,_,38vh/@h);
+            input
+            {
+                font-family: 'sszh';
+                font-size: 40vh/@h;
+
+                display: block;
+
+                text-indent: .1em;
+                letter-spacing: .1em;
+
+                border: 2px solid #000;
+                background-color: #b7e1f1;
+
+                .border-radius(5px);
+                .size(635vh/@h,110vh/@h);
+                .box-sizing(border-box);
+                .padding(_,50vh/@h);
+                        appearance: none;
+                -webkit-appearance: none;
+            }
+        }
+        .button
+        {
+            button
+            {
+                font-family: 'sszh';
+                font-size: 54vh/@h;
+
+                text-align: center;
+                text-indent: 1.5em;
+                letter-spacing: 1.5em;
+
+                color: #000;
+                border: 2px solid #000;
+                background-color: #ea5752;
+
+                .margin(135vh/@h,_,_,75vh/@h);
+                .display(flex);
+                .align-items(center);
+                .justify-content(center);
+                .size(485vh/@h,95vh/@h);
+                .border-radius(5px);
+            }
+        }
+    }
+    // 表单 end
+    // 默认状态 begin
+    &
+    {
+        .logo,
+        .intro p,
+        .login-form
+        {
+            opacity: 0;
+        }
+    }
+    // 默认状态 end
+    // 播放 begin
+    &.play
+    {
+        // logo begin
+        .logo
+        {
+            .animation(login-logo 1000ms ease forwards);
+        }
+        @keyframes login-logo
+        {
+            0%
+            {
+                opacity: 0;
+
+                .translate(0,15%);
+            }
+            100%
+            {
+                opacity: 1;
+
+                .translate(0,0);
+            }
+        }
+        // logo end
+        // intro begin
+        .intro
+        {
+            p
+            {
+                &:nth-child(1)
+                {
+                    .animation(login-intro 1000ms ease forwards 250ms);
+                }
+                &:nth-child(2)
+                {
+                    .animation(login-intro 1000ms ease forwards 500ms);
+                }
+            }
+        }
+        @keyframes login-intro
+        {
+            0%
+            {
+                opacity: 0;
+
+                .translate(50%,0);
+            }
+            100%
+            {
+                opacity: 1;
+
+                .translate(0,0);
+            }
+        }
+        // intro end
+        // 表单 begin
+        .login-form
+        {
+            .animation(login-form 1000ms ease forwards 500ms);
+        }
+        @keyframes login-form
+        {
+            0%
+            {
+                opacity: 0;
+
+                .translate(0,100%);
+            }
+            100%
+            {
+                opacity: 1;
+
+                .translate(0,0);
+            }
+        }
+        // 表单 end
+    }
+    // 播放 end
+}

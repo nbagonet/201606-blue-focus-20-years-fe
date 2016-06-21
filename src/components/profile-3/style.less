@@ -1,0 +1,347 @@
+@import '../../../node_modules/less-plugin-est/src/all.less';
+@import '../../less/conf.less';
+
+/**
+ * 组件：
+ */
+.profile-3
+{
+    position: relative;
+
+    max-width: 1080vh/@h;
+
+    .size(100%);
+    .margin(_,auto);
+    > div
+    {
+        .size(100%);
+    }
+    // logo begin
+    .logo
+    {
+        border-top: 25vh/@h solid rgba(0,0,0,0);
+        background: url('@{_i}/44.png') no-repeat 0 0;
+        background-size: cover;
+
+        .size(199vh/@h,97vh/@h);
+        .margin(_,_,_,95vh/@h);
+    }
+    // logo end
+    // 文字 begin
+    .text
+    {
+        font-family: 'sszh';
+        font-size: 42vh/@h;
+        line-height: 88vh/@h;
+
+        position: relative;
+        z-index: 100;
+
+        .padding(70vh/@h,70vh/@h,_,70vh/@h);
+        p
+        {
+            white-space: nowrap;
+            text-indent: .1em;
+            letter-spacing: .1em;
+
+            .margin(0,_);
+            &:first-child
+            {
+                &:before
+                {
+                    font-size: 65vh/@h;
+
+                    content: '/';
+
+                    color: @blue;
+
+                    .margin(_,.5em,_,_);
+                }
+            }
+            &:last-child
+            {
+                &:after
+                {
+                    font-size: 65vh/@h;
+
+                    content: '/';
+
+                    color: @blue;
+
+                    .margin(_,_,_,.5em);
+                }
+            }
+        }
+        strong
+        {
+            font-size: 60vh/@h;
+            font-weight: normal;
+
+            color: @blue;
+
+            .margin(_,.1em);
+        }
+    }
+    // 文字 end
+    // 桌子 begin
+    .desk
+    {
+        z-index: 10;
+
+        background: url('@{_i}/71.png') no-repeat 50% 50%;
+        background-size: cover;
+
+        .size(1042vh/@h,747vh/@h);
+        .absolute(_,_,235vh/@h,50%);
+        .margin(_,_,_,-521vh/@h);
+    }
+    // 桌子 end
+    // 手 begin
+    .hand
+    {
+        z-index: 50;
+
+        background: url('@{_i}/31.png') no-repeat 50% 50%;
+        background-size: cover;
+
+        .size(834vh/@h,323vh/@h);
+        .absolute(_,_,0,50%);
+        .margin(_,_,_,-417vh/@h);
+    }
+    // 手 end
+    // 食物 begin
+    .food-0,
+    .food-1,
+    .food-2,
+    .food-3,
+    .food-4,
+    .food-5,
+    .food-6,
+    .food-7
+    {
+        position: absolute;
+        z-index: 20;
+        left: 50%;
+
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        background-size: cover;
+    }
+    .food-0
+    {
+        bottom: 278vh/@h;
+
+        margin-left: -187.5vh/@h;
+
+        background-image: url('@{_i}/24.png');
+
+        .size(375vh/@h,371vh/@h);
+    }
+    .food-1
+    {
+        bottom: 634vh/@h;
+
+        margin-left: 202vh/@h;
+
+        background-image: url('@{_i}/25.png');
+
+        .size(197vh/@h,232vh/@h);
+    }
+    .food-2
+    {
+        bottom: 634vh/@h;
+
+        margin-left: -375vh/@h;
+
+        background-image: url('@{_i}/26.png');
+
+        .size(248vh/@h,236vh/@h);
+    }
+    .food-3
+    {
+        bottom: 340vh/@h;
+
+        margin-left: -425vh/@h;
+
+        background-image: url('@{_i}/27.png');
+
+        .size(154vh/@h,160vh/@h);
+    }
+    .food-4
+    {
+        bottom: 305vh/@h;
+
+        margin-left: -250vh/@h;
+
+        background-image: url('@{_i}/30.png');
+
+        .size(42vh/@h,239vh/@h);
+    }
+    .food-5
+    {
+        bottom: 295vh/@h;
+
+        margin-left: 220vh/@h;
+
+        background-image: url('@{_i}/69.png');
+
+        .size(68vh/@h,277vh/@h);
+    }
+    .food-6
+    {
+        bottom: 675vh/@h;
+
+        margin-left: -60vh/@h;
+
+        background-image: url('@{_i}/53.png');
+
+        .size(213vh/@h,297vh/@h);
+    }
+    // 食物 end
+    // 默认状态 begin
+    &
+    {
+        .logo,
+        .text p,
+        .hand,
+        .desk,
+        .food-0,
+        .food-1,
+        .food-2,
+        .food-3,
+        .food-4,
+        .food-5,
+        .food-6,
+        .food-7
+        {
+            opacity: 0;
+        }
+    }
+    // 默认状态 end
+    // 播放 begin
+    &.play
+    {
+        // logo begin
+        .logo
+        {
+            .animation(profile-1-logo 1000ms ease forwards);
+        }
+        @keyframes profile-1-logo
+        {
+            0%
+            {
+                opacity: 0;
+
+                .translate(0,15%);
+            }
+            100%
+            {
+                opacity: 1;
+
+                .translate(0,0);
+            }
+        }
+        // logo end
+        // 文字 begin
+        .text
+        {
+            p
+            {
+                .animation(profile-1-text 1000ms ease forwards 250ms);
+            }
+        }
+        @keyframes profile-1-text
+        {
+            0%
+            {
+                opacity: 0;
+
+                .translate(0,15%);
+            }
+            100%
+            {
+                opacity: 1;
+
+                .translate(0,0);
+            }
+        }
+        // 文字 end
+        // 其它 begin
+        .desk,
+        .food-0,
+        .food-1,
+        .food-2,
+        .food-3,
+        .food-4,
+        .food-5,
+        .food-6,
+        .food-7
+        {
+            .animation(profile-3-fade 1000ms ease forwards);
+        }
+        .desk
+        {
+            animation-delay: 500ms;
+        }
+        .food-0
+        {
+            animation-delay: 600ms;
+        }
+        .food-1
+        {
+            animation-delay: 700ms;
+        }
+        .food-2
+        {
+            animation-delay: 800ms;
+        }
+        .food-3
+        {
+            animation-delay: 900ms;
+        }
+        .food-4
+        {
+            animation-delay: 1000ms;
+        }
+        .food-5
+        {
+            animation-delay: 1100ms;
+        }
+        .food-6
+        {
+            animation-delay: 1200ms;
+        }
+        .hand
+        {
+            .animation(profile-3-hand 1000ms ease forwards 1300ms);
+        }
+        @keyframes profile-3-hand
+        {
+            0%
+            {
+                opacity: 0;
+
+                .translate(0,50%);
+            }
+            100%
+            {
+                opacity: 1;
+
+                .translate(0,0);
+            }
+        }
+        @keyframes profile-3-fade
+        {
+            0%
+            {
+                opacity: 0;
+            }
+            100%
+            {
+                opacity: 1;
+            }
+        }
+        // 其它 end
+    }
+    // 播放 end
+}

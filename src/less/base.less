@@ -1,0 +1,159 @@
+@import '../../node_modules/less-plugin-est/src/all.less';
+@import './conf.less';
+.global-normalize();
+
+// 默认字体
+@font-face
+{
+    font-family: 'Rhythm Heiti';
+
+    src: local('PingFang SC Light'),
+    local('PingFang TC Light'),
+    local('PingFang-SC-Light'),
+    local('PingFang-TC-Light'),
+    local('PingFang SC'),
+    local('PingFang TC'),
+
+    local('Hiragino Sans GB'),
+
+    local('Lantinghei TC Extralight'),
+    local('Lantinghei SC Extralight'),
+    local(FZLTXHB--B51-0),
+    local(FZLTZHK--GBK1-0),
+
+    local('Heiti SC Light'),
+    local(STHeitiSC-Light),
+    local('Heiti SC'),
+    local('Heiti TC Light'),
+    local(STHeitiTC-Light),
+    local('Heiti TC'),
+
+    local('Microsoft Yahei'),
+    local('Microsoft Jhenghei'),
+
+    local('Noto Sans CJK KR'),
+    local('Noto Sans CJK JP'),
+    local('Noto Sans CJK SC'),
+    local('Noto Sans CJK TC'),
+    local('Source Han Sans K'),
+    local('Source Han Sans KR'),
+    local('Source Han Sans JP'),
+    local('Source Han Sans CN'),
+    local('Source Han Sans HK'),
+    local('Source Han Sans TW'),
+    local('Source Han Sans TWHK'),
+    local('Droid Sans Fallback')
+    ;
+}
+@default-base-font-family: @default-font;
+
+/**
+ * reset
+ */
+html,
+body
+{
+    .size(100%);
+    .user-select(none);
+}
+body
+{
+    font-weight: normal;
+    line-height: 1;
+    // word-wrap: break-word;
+    // word-break: break-all;
+
+    background: url('@{_i}/0.png') repeat @white;
+    background-size: 76rem/@r;
+
+    .user-select(none);
+    -webkit-font-smoothing: antialiased;
+}
+a
+{
+    text-decoration: none;
+}
+ul,
+li,
+ol,
+dl,
+dt,
+dd
+{
+    list-style: none;
+
+    .padding(0);
+    .margin(0);
+}
+.none
+{
+    display: none!important;
+}
+.loading,
+.type-0,
+.type-1
+{
+    .absolute(0,0,0,0);
+}
+.type-0,
+.type-1
+{
+    overflow: hidden;
+
+    .size(100%);
+    .display(flex);
+    .align-items(center);
+    .justify-content(center);
+    .flex-direction(column);
+}
+.text-left
+{
+    text-align: left;
+}
+.text-right
+{
+    text-align: right;
+}
+.font-normal
+{
+    font-family: @default-font;
+}
+.font-yahei
+{
+    font-family: 'yahei', @default-font;
+}
+.font-yahei-bold
+{
+    font-family: 'yahei-bold', @default-font;
+}
+.font-bold
+{
+    &,
+    & *
+    {
+        font-weight: bold;
+    }
+}
+.swiper-slide
+{
+    overflow: hidden;
+}
+
+/**
+ * 特殊字体
+ */
+.font-face('sszh', '/static/font/sszh');
+.font-face('yahei', '/static/font/yahei');
+.font-face('yahei-bold', '/static/font/yahei-bold');
+// .font-face('sszh', 'http://fe.alltosun.net/201606bp20/dist/static/font/sszh');
+
+/**
+ * animated.css
+ */
+@import (inline) '../../node_modules/animate.css/animate.min.css';
+@import '../../node_modules/vue-animate/src/vue-animate.less';
+
+/**
+ * swiper
+ */
+@import (inline) '../../node_modules/swiper/dist/css/swiper.min.css';

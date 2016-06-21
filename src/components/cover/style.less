@@ -1,0 +1,468 @@
+@import '../../../node_modules/less-plugin-est/src/all.less';
+@import '../../less/conf.less';
+
+/**
+ * 组件：封面
+ */
+.cover
+{
+    overflow: hidden;
+
+    .size(100%);
+    .display(flex);
+    .align-items(center);
+    .justify-content(center);
+    .cover-box
+    {
+        border: 2px solid @blue;
+        background-color: @white;
+
+        .size(813vh/@h,1434vh/@h);
+    }
+    // 播放动画 begin
+    &.play
+    {
+        // 小logo begin
+        .logo-s
+        {
+            .animation(cover-logo-s 750ms ease forwards);
+        }
+        @keyframes cover-logo-s
+        {
+            0%
+            {
+                opacity: 0;
+
+                .translate(0,-50%);
+            }
+            100%
+            {
+                opacity: 1;
+
+                .translate(0,0);
+            }
+        }
+        // 小logo end
+        // 小字 begin
+        .logo-b-stxt
+        {
+            .animation(cover-logo-b-stxt 750ms ease-in-out forwards);
+        }
+        @keyframes cover-logo-b-stxt
+        {
+            0%
+            {
+                opacity: 0;
+
+                .translate(0,10%);
+            }
+            100%
+            {
+                opacity: 1;
+
+                .translate(0,0);
+            }
+        }
+        // 小字 end
+        // 大字 begin
+        .logo-b-btxt
+        {
+            > li
+            {
+                &:after
+                {
+                    .animation(cover-logo-b-btxt 750ms ease forwards);
+                }
+            }
+        }
+        @keyframes cover-logo-b-btxt
+        {
+            0%
+            {
+                .translate(0,0);
+            }
+            100%
+            {
+                .translate(28vh/@h,-28vh/@h);
+            }
+        }
+        // 大字 end
+        // 线条 begin
+        .logo-b-line
+        {
+            > li
+            {
+                &:before
+                {
+                    .animation(logo-b-line 750ms ease forwards);
+                }
+            }
+        }
+        @keyframes logo-b-line
+        {
+            0%
+            {
+                .scale(1);
+            }
+            100%
+            {
+                .scale(0);
+            }
+        }
+        // 线条 end
+        // 按钮 begin
+        .btn
+        {
+            .animation(cover-btn 750ms ease forwards);
+        }
+        @keyframes cover-btn
+        {
+            0%
+            {
+                opacity: 0;
+
+                .translate(0,15%);
+            }
+            100%
+            {
+                opacity: 1;
+
+                .translate(0,0);
+            }
+        }
+        // 按钮 end
+    }
+    // 播放动画 end
+    // 小logo begin
+    .logo-s
+    {
+        opacity: 0;
+        background: url('@{_i}/44.png') no-repeat 50% 50%;
+        background-size: cover;
+
+        .size(213vh/@h,113vh/@h);
+        .margin(90vh/@h,auto,70vh/@h);
+    }
+    // 小logo end
+    // 大logo begin
+    .logo-b
+    {
+        position: relative;
+
+        overflow: hidden;
+
+        .size(100%,770vh/@h);
+        // 小字 begin
+        .logo-b-stxt
+        {
+            z-index: 500;
+
+            opacity: 0;
+            background: url('@{_i}/73.png') no-repeat 50% 50%;
+            background-size: cover;
+
+            .size(183vh/@h,75vh/@h);
+            .absolute(40vh/@h,_,_,183vh/@h);
+        }
+        // 小字 end
+        // 大字 begin
+        .logo-b-btxt
+        {
+            z-index: 500;
+
+            .size(600vh/@h,550vh/@h);
+            .absolute(188vh/@h,_,_,50%);
+            .translate(-50%,-6.5%);
+            > li
+            {
+                position: absolute;
+                z-index: 500;
+
+                .scale(.9);
+                &:before,
+                &:after
+                {
+                    content: '';
+
+                    background-repeat: no-repeat;
+                    background-position: 50% 50%;
+                    background-size: cover;
+
+                    .absolute(0,0,0,0);
+                }
+                &:before
+                {
+                    z-index: 490;
+                }
+                &:after
+                {
+                    z-index: 500;
+
+                    .translate(0,0);
+                }
+                // 重 begin
+                &:nth-child(1)
+                {
+                    top: 15vh/@h;
+                    left: 15vh/@h;
+
+                    .size(271vh/@h,251vh/@h);
+                    &:before
+                    {
+                        background-image: url('@{_i}/13.png');
+                    }
+                    &:after
+                    {
+                        background-image: url('@{_i}/14.png');
+                    }
+                }
+                // 重 end
+                // 返 begin
+                &:nth-child(2)
+                {
+                    top: 15vh/@h;
+                    right: 15vh/@h;
+
+                    .size(270vh/@h,251vh/@h);
+                    &:before
+                    {
+                        background-image: url('@{_i}/15.png');
+                    }
+                    &:after
+                    {
+                        background-image: url('@{_i}/16.png');
+                    }
+                }
+                // 返 end
+                // 20 begin
+                &:nth-child(3)
+                {
+                    bottom: 15vh/@h;
+                    left: 1vh/@h;
+
+                    .size(291vh/@h,232vh/@h);
+                    &:before
+                    {
+                        background-image: url('@{_i}/17.png');
+                    }
+                    &:after
+                    {
+                        background-image: url('@{_i}/18.png');
+                    }
+                }
+                // 20 end
+                // 岁 begin
+                &:nth-child(4)
+                {
+                    right: 15vh/@h;
+                    bottom: 15vh/@h;
+
+                    .size(268vh/@h,251vh/@h);
+                    &:before
+                    {
+                        background-image: url('@{_i}/19.png');
+                    }
+                    &:after
+                    {
+                        background-image: url('@{_i}/20.png');
+                    }
+                }
+                // 岁 end
+            }
+        }
+        // 大字 end
+        // 线条 begin
+        .logo-b-line
+        {
+            z-index: 100;
+
+            .absolute(0,0,0,0);
+            > li
+            {
+                position: absolute;
+                z-index: 100;
+
+                overflow: hidden;
+                &:before
+                {
+                    z-index: 120;
+
+                    content: '';
+
+                    background-color: @white;
+
+                    .absolute(0,0,0,0);
+                    .size(100%);
+                }
+                &:after
+                {
+                    position: absolute;
+                    z-index: 100;
+
+                    display: block;
+
+                    content: '';
+
+                    background-repeat: no-repeat;
+                    background-position: 0 0;
+                    background-size: cover;
+                }
+                &:nth-child(1)
+                {
+                    top: 0;
+                    left: 136vh/@h;
+
+                    .size(112vh/@h,110vh/@h);
+                    &:after
+                    {
+                        background-image: url('@{_i}/36.png');
+
+                        .size(112vh/@h,110vh/@h);
+                    }
+                }
+                &:nth-child(2)
+                {
+                    top: 69vh/@h;
+                    left: 150vh/@h;
+
+                    .size(334vh/@h,79vh/@h);
+                    &:after
+                    {
+                        background-image: url('@{_i}/37.png');
+
+                        .size(334vh/@h,79vh/@h);
+                    }
+                }
+                &:nth-child(3)
+                {
+                    top: 125vh/@h;
+                    left: 365vh/@h;
+
+                    .size(310vh/@h,63vh/@h);
+                    &:after
+                    {
+                        background-image: url('@{_i}/38.png');
+
+                        .size(310vh/@h,63vh/@h);
+                    }
+                }
+                &:nth-child(4)
+                {
+                    top: 184vh/@h;
+                    left: 0;
+
+                    .size(116vh/@h,223vh/@h);
+                    &:after
+                    {
+                        background-image: url('@{_i}/39.png');
+
+                        .size(116vh/@h,223vh/@h);
+                    }
+                }
+                &:nth-child(5),
+                &:nth-child(6),
+                &:nth-child(7),
+                &:nth-child(8)
+                {
+                    &,
+                    &:after
+                    {
+                        .size(67vh/@h,70vh/@h);
+                    }
+                    &:after
+                    {
+                        background-image: url('@{_i}/40.png');
+                    }
+                }
+                &:nth-child(5)
+                {
+                    top: 390vh/@h;
+                    left: 75vh/@h;
+                }
+                &:nth-child(6)
+                {
+                    top: 233vh/@h;
+                    left: 390vh/@h;
+                }
+                &:nth-child(7)
+                {
+                    top: 390vh/@h;
+                    right: 132vh/@h;
+                }
+                &:nth-child(8)
+                {
+                    top: 570vh/@h;
+                    left: 370vh/@h;
+                }
+                &:nth-child(9)
+                {
+                    bottom: 0;
+                    left: 0;
+
+                    .size(120vh/@h,169vh/@h);
+                    &:after
+                    {
+                        background-image: url('@{_i}/41.png');
+
+                        .size(120vh/@h,169vh/@h);
+                    }
+                }
+                &:nth-child(10)
+                {
+                    right: 52vh/@h;
+                    bottom: 66vh/@h;
+
+                    .size(394vh/@h,154vh/@h);
+                    &:after
+                    {
+                        background-image: url('@{_i}/43.png');
+
+                        .size(394vh/@h,154vh/@h);
+                    }
+                }
+                &:nth-child(11)
+                {
+                    top: 140vh/@h;
+                    right: 0;
+
+                    .size(97vh/@h,190vh/@h);
+                    &:after
+                    {
+                        background-image: url('@{_i}/42.png');
+
+                        .size(97vh/@h,190vh/@h);
+                    }
+                }
+            }
+        }
+        // 线条 end
+    }
+    // 大logo end
+    // 按钮 begin
+    .btn
+    {
+        font-family: 'sszh';
+        font-size: 45vh/@h;
+
+        position: relative;
+
+        opacity: 0;
+        color: @blue;
+        border: 2px solid @blue;
+
+        .size(627vh/@h,135vh/@h);
+        .display(flex);
+        .margin(100vh/@h,auto,_);
+        .justify-content(center);
+        .align-items(center);
+        &:after
+        {
+            content: '';
+
+            border: 1px solid @blue;
+
+            .absolute(5vh/@h,5vh/@h,5vh/@h,5vh/@h);
+        }
+    }
+    // 按钮 end
+}

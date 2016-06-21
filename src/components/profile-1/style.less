@@ -1,0 +1,175 @@
+@import '../../../node_modules/less-plugin-est/src/all.less';
+@import '../../less/conf.less';
+
+/**
+ * 组件：
+ */
+.profile-1
+{
+    position: relative;
+
+    max-width: 1080vh/@h;
+
+    .size(100%);
+    .margin(_,auto);
+    > div
+    {
+        .size(100%);
+    }
+    // logo begin
+    .logo
+    {
+        border-top: 25vh/@h solid rgba(0,0,0,0);
+        background: url('@{_i}/44.png') no-repeat 0 0;
+        background-size: cover;
+
+        .size(199vh/@h,97vh/@h);
+        .margin(_,_,_,95vh/@h);
+    }
+    // logo end
+    // 文字 begin
+    .text
+    {
+        font-family: 'sszh';
+        font-size: 42vh/@h;
+        line-height: 88vh/@h;
+
+        position: relative;
+        z-index: 100;
+
+        .padding(70vh/@h,70vh/@h,_,70vh/@h);
+        p
+        {
+            white-space: nowrap;
+            text-indent: .1em;
+            letter-spacing: .1em;
+
+            .margin(0,_);
+            &:first-child
+            {
+                &:before
+                {
+                    font-size: 65vh/@h;
+
+                    content: '/';
+
+                    color: @blue;
+
+                    .margin(_,.5em,_,_);
+                }
+            }
+            &:last-child
+            {
+                &:after
+                {
+                    font-size: 65vh/@h;
+
+                    content: '/';
+
+                    color: @blue;
+
+                    .margin(_,_,_,.5em);
+                }
+            }
+        }
+        strong
+        {
+            font-size: 60vh/@h;
+            font-weight: normal;
+
+            color: @blue;
+
+            .margin(_,.1em);
+        }
+    }
+    // 文字 end
+    // 蛋糕 begin
+    .cake
+    {
+        z-index: 50;
+
+        background: url('@{_i}/1.png') no-repeat 100% 50%;
+        background-size: 90% auto;
+
+        .absolute(0,0,0,0);
+    }
+    // 蛋糕 end
+    // 默认状态 begin
+    &
+    {
+        .logo,
+        .text p,
+        .cake
+        {
+            opacity: 0;
+        }
+    }
+    // 默认状态 end
+    // 播放 begin
+    &.play
+    {
+        // logo begin
+        .logo
+        {
+            .animation(profile-1-logo 1000ms ease forwards);
+        }
+        @keyframes profile-1-logo
+        {
+            0%
+            {
+                opacity: 0;
+
+                .translate(0,15%);
+            }
+            100%
+            {
+                opacity: 1;
+
+                .translate(0,0);
+            }
+        }
+        // logo end
+        // 文字 begin
+        .text
+        {
+            p
+            {
+                .animation(profile-1-text 1000ms ease forwards 250ms);
+            }
+        }
+        @keyframes profile-1-text
+        {
+            0%
+            {
+                opacity: 0;
+
+                .translate(0,15%);
+            }
+            100%
+            {
+                opacity: 1;
+
+                .translate(0,0);
+            }
+        }
+        // 文字 end
+        // 蛋糕 begin
+        .cake
+        {
+            .animation(profile-1-cake 1000ms ease forwards 500ms);
+        }
+        @keyframes profile-1-cake
+        {
+            0%
+            {
+                opacity: 0;
+            }
+            100%
+            {
+                opacity: 1;
+            }
+        }
+        // 蛋糕 end
+    }
+    // 播放 end
+}

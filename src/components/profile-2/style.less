@@ -1,0 +1,315 @@
+@import '../../../node_modules/less-plugin-est/src/all.less';
+@import '../../less/conf.less';
+
+/**
+ * 组件：
+ */
+.profile-2
+{
+    position: relative;
+
+    max-width: 1080vh/@h;
+
+    .size(100%);
+    .margin(_,auto);
+    > div
+    {
+        .size(100%);
+    }
+    // logo begin
+    .logo
+    {
+        border-top: 25vh/@h solid rgba(0,0,0,0);
+        background: url('@{_i}/44.png') no-repeat 0 0;
+        background-size: cover;
+
+        .size(199vh/@h,97vh/@h);
+        .margin(_,_,_,95vh/@h);
+    }
+    // logo end
+    // 文字 begin
+    .text
+    {
+        font-family: 'sszh';
+        font-size: 42vh/@h;
+        line-height: 88vh/@h;
+
+        position: relative;
+        z-index: 100;
+
+        .padding(70vh/@h,70vh/@h,_,70vh/@h);
+        p
+        {
+            white-space: nowrap;
+            text-indent: .1em;
+            letter-spacing: .1em;
+
+            .margin(0,_);
+            &:first-child
+            {
+                &:before
+                {
+                    font-size: 65vh/@h;
+
+                    content: '/';
+
+                    color: @blue;
+
+                    .margin(_,.5em,_,_);
+                }
+            }
+            &:last-child
+            {
+                &:after
+                {
+                    font-size: 65vh/@h;
+
+                    content: '/';
+
+                    color: @blue;
+
+                    .margin(_,_,_,.5em);
+                }
+            }
+        }
+        strong
+        {
+            font-size: 60vh/@h;
+            font-weight: normal;
+
+            color: @blue;
+
+            .margin(_,.1em);
+        }
+    }
+    // 文字 end
+    // 山 begin
+    .mountain
+    {
+        z-index: 50;
+
+        background: url('@{_i}/52.png') repeat-x 0 100%;
+        background-size: contain;
+
+        .size(500%,214vh/@h);
+        .absolute(1040vh/@h,_,_,0);
+    }
+    // 山 end
+    // 树 begin
+    .tree
+    {
+        z-index: 51;
+
+        background: url('@{_i}/65.png') repeat-x 0 100%;
+        background-size: contain;
+
+        .size(500%,82vh/@h);
+        .absolute(1200vh/@h,_,_,0);
+    }
+    // 树 end
+    // 铁路 begin
+    .railway
+    {
+        z-index: 52;
+
+        background: url('@{_i}/66.png') repeat-x 0 100%;
+        background-size: contain;
+
+        .size(500%,24vh/@h);
+        .absolute(1345vh/@h,_,_,0);
+    }
+    // 铁路 end
+    // 火车 begin
+    .train
+    {
+        z-index: 53;
+
+        background: url('@{_i}/72.png') no-repeat 0 100%;
+        background-size: cover;
+
+        .size(990vh/@h,122vh/@h);
+        .absolute(1223vh/@h,_,_,50%);
+        .margin(_,_,_,-495vh/@h);
+    }
+    // 火车 end
+    // 飞机 begin
+    .plane
+    {
+        z-index: 54;
+
+        background: url('@{_i}/64.png') no-repeat 0 100%;
+        background-size: cover;
+
+        .size(950vh/@h,236vh/@h);
+        .absolute(840vh/@h,_,_,50%);
+        .margin(_,_,_,-495vh/@h);
+    }
+    // 飞机 end
+    // 人 begin
+    .people
+    {
+        z-index: 55;
+
+        background: url('@{_i}/60.png') no-repeat 0 100%;
+        background-size: cover;
+
+        .size(748vh/@h,909vh/@h);
+        .absolute(_,_,120vh/@h,50%);
+        .margin(_,_,_,-399vh/@h);
+    }
+    // 人 end
+    // 默认状态 begin
+    &
+    {
+        .logo,
+        .text p,
+        .mountain,
+        .tree,
+        .railway,
+        .plane,
+        .train,
+        .people
+        {
+            opacity: 0;
+        }
+    }
+    // 默认状态 end
+    // 播放 begin
+    &.play
+    {
+        // logo begin
+        .logo
+        {
+            .animation(profile-1-logo 1000ms ease forwards);
+        }
+        @keyframes profile-1-logo
+        {
+            0%
+            {
+                opacity: 0;
+
+                .translate(0,15%);
+            }
+            100%
+            {
+                opacity: 1;
+
+                .translate(0,0);
+            }
+        }
+        // logo end
+        // 文字 begin
+        .text
+        {
+            p
+            {
+                .animation(profile-1-text 1000ms ease forwards 250ms);
+            }
+        }
+        @keyframes profile-1-text
+        {
+            0%
+            {
+                opacity: 0;
+
+                .translate(0,15%);
+            }
+            100%
+            {
+                opacity: 1;
+
+                .translate(0,0);
+            }
+        }
+        // 文字 end
+        // 山 begin
+        .mountain
+        {
+            opacity: 1;
+
+            .transition(opacity 1000ms ease);
+            .animation(profile-2-move 40000ms linear forwards);
+        }
+        @keyframes profile-2-move
+        {
+            0%
+            {
+                .translate(0,0);
+            }
+            100%
+            {
+                .translate(-80%,0);
+            }
+        }
+        // 山 end
+        // 树 begin
+        .tree
+        {
+            opacity: 1;
+
+            .transition(opacity 1000ms ease);
+            .animation(profile-2-move 60000ms linear forwards);
+        }
+        // 树 end
+        // 铁路 begin
+        .railway
+        {
+            opacity: 1;
+
+            .transition(opacity 1000ms ease);
+            .animation(profile-2-move 80000ms linear forwards);
+        }
+        // 铁路 end
+        // 火车 begin
+        .train
+        {
+            opacity: 1;
+
+            .transition(opacity 1000ms ease);
+            .animation(profile-2-move2 40000ms linear forwards);
+        }
+        // 火车 end
+        // 飞机 begin
+        .plane
+        {
+            opacity: 1;
+
+            .transition(opacity 1000ms ease);
+            .animation(profile-2-move2 40000ms linear forwards);
+        }
+        @keyframes profile-2-move2
+        {
+            0%
+            {
+                .translate(-100%,0);
+            }
+            100%
+            {
+                .translate(100%,0);
+            }
+        }
+        // 飞机 end
+        // 人 begin
+        .people
+        {
+            .animation(profile-2-move3 750ms ease forwards);
+        }
+        @keyframes profile-2-move3
+        {
+            0%
+            {
+                opacity: 0;
+
+                .translate(-10%,0);
+            }
+            100%
+            {
+                opacity: 1;
+
+                .translate(0,0);
+            }
+        }
+        // 人 end
+    }
+    // 播放 end
+}

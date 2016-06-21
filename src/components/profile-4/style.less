@@ -1,0 +1,442 @@
+@import '../../../node_modules/less-plugin-est/src/all.less';
+@import '../../less/conf.less';
+
+/**
+ * 组件：
+ */
+.profile-4
+{
+    position: relative;
+
+    max-width: 1080vh/@h;
+
+    .size(100%);
+    .margin(_,auto);
+    > div
+    {
+        .size(100%);
+    }
+    // logo begin
+    .logo
+    {
+        border-top: 25vh/@h solid rgba(0,0,0,0);
+        background: url('@{_i}/44.png') no-repeat 0 0;
+        background-size: cover;
+
+        .size(199vh/@h,97vh/@h);
+        .margin(_,_,_,95vh/@h);
+    }
+    // logo end
+    // 文字 begin
+    .text
+    {
+        font-family: 'sszh';
+        font-size: 42vh/@h;
+        line-height: 88vh/@h;
+
+        position: relative;
+        z-index: 100;
+
+        .padding(70vh/@h,70vh/@h,_,70vh/@h);
+        p
+        {
+            white-space: nowrap;
+            text-indent: .1em;
+            letter-spacing: .1em;
+
+            .margin(0,_);
+            &:first-child
+            {
+                &:before
+                {
+                    font-size: 65vh/@h;
+
+                    content: '/';
+
+                    color: @blue;
+
+                    .margin(_,.5em,_,_);
+                }
+            }
+            &:last-child
+            {
+                &:after
+                {
+                    font-size: 65vh/@h;
+
+                    content: '/';
+
+                    color: @blue;
+
+                    .margin(_,_,_,.5em);
+                }
+            }
+        }
+        strong
+        {
+            font-size: 60vh/@h;
+            font-weight: normal;
+
+            color: @blue;
+
+            .margin(_,.1em);
+        }
+    }
+    // 文字 end
+    // 会议界面 begin
+    .meeting
+    {
+        position: relative;
+        z-index: 100;
+
+        .size(100%,1056vh/@h);
+        .absolute(650vh/@h,0,_,0);
+        // 灯 begin
+        .light
+        {
+            z-index: 10;
+
+            .absolute(0,0,0,0);
+            &:before
+            {
+                z-index: 10;
+
+                content: '';
+
+                background: url('@{_i}/11.png') no-repeat 50% 0;
+                background-size: 671vh/@h 395vh/@h;
+
+                .absolute(0,0,0,0);
+            }
+            .light-l,
+            .light-m,
+            .light-r
+            {
+                position: absolute;
+                z-index: 5;
+
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .light-l
+            {
+                bottom: 0;
+                left: 0;
+
+                background-image: url('@{_i}/33.png');
+
+                .size(619vh/@h,916vh/@h);
+            }
+            .light-m
+            {
+                bottom: 0;
+                left: 50%;
+
+                background-image: url('@{_i}/34.png');
+
+                .translate(-50%,0);
+                .size(627vh/@h,829vh/@h);
+            }
+            .light-r
+            {
+                right: 0;
+                bottom: 0;
+
+                background-image: url('@{_i}/35.png');
+
+                .size(627vh/@h,771vh/@h);
+            }
+        }
+        // 灯 end
+        // 桌子 begin
+        .table
+        {
+            z-index: 120;
+
+            .size(917vh/@h,419vh/@h);
+            .absolute(_,_,160vh/@h,50%);
+            .translate(-50%,0);
+            &:before
+            {
+                z-index: 120;
+
+                content: '';
+
+                background: url('@{_i}/70.png') no-repeat 0 0;
+                background-size: cover;
+
+                .size(731vh/@h,189vh/@h);
+                .absolute(_,_,0,97vh/@h);
+            }
+            > div
+            {
+                position: absolute;
+                z-index: 50;
+                bottom: -4vh/@h;
+
+                background-repeat: no-repeat;
+                background-position: 0 0;
+                background-size: cover;
+            }
+            // 咖啡 begin
+            .coffee
+            {
+                right: 208vh/@h;
+                bottom: 186vh/@h;
+
+                background-image: url('@{_i}/12.png');
+
+                .size(29vh/@h,45vh/@h);
+            }
+            // 咖啡 end
+            // 人 begin
+            .people-0
+            {
+                right: 0;
+
+                background-image: url('@{_i}/46.png');
+
+                .size(224vh/@h,347vh/@h);
+            }
+            .people-1
+            {
+                right: 236vh/@h;
+
+                background-image: url('@{_i}/47.png');
+
+                .size(124vh/@h,342vh/@h);
+            }
+            .people-2
+            {
+                right: 356vh/@h;
+
+                background-image: url('@{_i}/48.png');
+
+                .size(141vh/@h,429vh/@h);
+            }
+            .people-3
+            {
+                right: 463vh/@h;
+
+                background-image: url('@{_i}/49.png');
+
+                .size(140vh/@h,353vh/@h);
+            }
+            .people-4
+            {
+                left: 160vh/@h;
+
+                background-image: url('@{_i}/51.png');
+
+                .size(160vh/@h,479vh/@h);
+            }
+            .people-5
+            {
+                left: 0;
+
+                background-image: url('@{_i}/50.png');
+
+                .size(277vh/@h,351vh/@h);
+            }
+            // 人 end
+        }
+        // 桌子 end
+    }
+    // 会议界面 end
+    // 打卡界面 begin
+    .punch
+    {
+        // 建筑 begin
+        .building
+        {
+            z-index: 10;
+
+            background: url('@{_i}/4.png') no-repeat 0 0;
+            background-size: cover;
+
+            .size(833vh/@h,365vh/@h);
+            .absolute(_,_,200vh/@h,0);
+        }
+        // 建筑 end
+        // 人 begin
+        .people
+        {
+            z-index: 20;
+
+            background: url('@{_i}/54.png') no-repeat 0 0;
+            background-size: cover;
+
+            .size(317vh/@h,844vh/@h);
+            .absolute(_,80vh/@h,75vh/@h,_);
+        }
+        // 人 end
+        // 卡 begin
+        .card
+        {
+            z-index: 50;
+
+            background: url('@{_i}/9.png') no-repeat 0 0;
+            background-size: cover;
+
+            .size(283vh/@h,418vh/@h);
+            .absolute(_,_,520vh/@h,0);
+        }
+        // 卡 end
+        // 气泡 begin
+        .bubble
+        {
+            z-index: 50;
+
+            background: url('@{_i}/2.png') no-repeat 0 0;
+            background-size: cover;
+
+            .size(362vh/@h,316vh/@h);
+            .absolute(_,_,680vh/@h,270vh/@h);
+        }
+        // 气泡 end
+    }
+    // 打卡界面 end
+    // 默认状态 begin
+    &
+    {
+        .logo,
+        .text p,
+        .light:before,
+        .light-l,
+        .light-m,
+        .light-r,
+        .table:before,
+        .coffee,
+        .people-0,
+        .people-1,
+        .people-2,
+        .people-3,
+        .people-4,
+        .people-5,
+        .punch
+        {
+            opacity: 0;
+        }
+    }
+    // 默认状态 end
+    // 播放 begin
+    &.play
+    {
+        // logo begin
+        .logo
+        {
+            .animation(profile-1-logo 1000ms ease forwards);
+        }
+        @keyframes profile-1-logo
+        {
+            0%
+            {
+                opacity: 0;
+
+                .translate(0,15%);
+            }
+            100%
+            {
+                opacity: 1;
+
+                .translate(0,0);
+            }
+        }
+        // logo end
+        // 文字 begin
+        .text
+        {
+            p
+            {
+                .animation(profile-1-text 1000ms ease forwards 500ms);
+            }
+        }
+        @keyframes profile-1-text
+        {
+            0%
+            {
+                opacity: 0;
+
+                .translate(0,15%);
+            }
+            100%
+            {
+                opacity: 1;
+
+                .translate(0,0);
+            }
+        }
+        // 文字 end
+        // 会议 begin
+        .light:before,
+        .light-l,
+        .light-m,
+        .light-r,
+        .table:before,
+        .coffee,
+        .people-0,
+        .people-1,
+        .people-2,
+        .people-3,
+        .people-4,
+        .people-5
+        {
+            .animation(profile-4-meeting-fade 1000ms ease forwards);
+        }
+        .light:before
+        {
+            animation-delay: 800ms;
+        }
+        .table:before
+        {
+            animation-delay: 900ms;
+        }
+        .coffee,
+        .people-0,
+        .light-r
+        {
+            animation-delay: 1000ms;
+        }
+        .people-1
+        {
+            animation-delay: 1100ms;
+        }
+        .people-2,
+        .light-m
+        {
+            animation-delay: 1200ms;
+        }
+        .people-3
+        {
+            animation-delay: 1300ms;
+        }
+        .people-4,
+        .light-l
+        {
+            animation-delay: 1400ms;
+        }
+        .people-5
+        {
+            animation-delay: 1500ms;
+        }
+        @keyframes profile-4-meeting-fade
+        {
+            0%
+            {
+                opacity: 0;
+            }
+            100%
+            {
+                opacity: 1;
+            }
+        }
+        // 会议 end
+        // 打卡 begin
+        .punch
+        {
+            .animation(profile-4-meeting-fade 1000ms ease forwards);
+        }
+        // 打卡 end
+    }
+    // 播放 end
+}

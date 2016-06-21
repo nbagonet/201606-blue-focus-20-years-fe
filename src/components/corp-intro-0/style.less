@@ -1,0 +1,441 @@
+@import '../../../node_modules/less-plugin-est/src/all.less';
+@import '../../less/conf.less';
+
+/**
+ * 组件：
+ */
+.corp-intro-0
+{
+    // 时间线 begin
+    .timeline
+    {
+        font-size: 0;
+
+        .margin(125vh/@h,_,_);
+        &:after
+        {
+            display: block;
+
+            content: '';
+
+            background-color: @blue;
+
+            .size(2px,7px);
+            .margin(25vh/@h,_,_,~"-webkit-calc(19.884726209vh + 5px)");
+        }
+        dl
+        {
+            &:after
+            {
+                display: block;
+
+                content: '';
+
+                background-color: @blue;
+
+                .size(2px,7px);
+                .margin(25vh/@h,_,_,~"-webkit-calc(19.884726209vh + 5px)");
+            }
+        }
+        dt,
+        dd
+        {
+            vertical-align: top;
+
+            .inline-block();
+            .box-sizing(border-box);
+            &:nth-child(1),
+            &:nth-child(2)
+            {
+                height: 170vh/@h;
+            }
+            &:nth-child(3),
+            &:nth-child(4)
+            {
+                height: 200vh/@h;
+            }
+            &:nth-child(5),
+            &:nth-child(6)
+            {
+                height: 245vh/@h;
+            }
+            &:nth-child(7),
+            &:nth-child(8)
+            {
+                height: 310vh/@h;
+            }
+            &:nth-child(9),
+            &:nth-child(10)
+            {
+                height: 95vh/@h;
+            }
+        }
+        dt
+        {
+            font-size: 35vh/@h;
+            line-height: 2;
+
+            width: percentage(345/900);
+
+            text-align: right;
+
+            color: @blue;
+
+            .padding(_,35vh/@h,_,_);
+            &:before
+            {
+                content: '/ ';
+            }
+            &:after
+            {
+                content: ' /';
+            }
+            &:nth-child(9)
+            {
+                &:after
+                {
+                    content: '';
+
+                    .margin(_,1em,_,_);
+                }
+            }
+        }
+        dd
+        {
+            font-size: 40vh/@h;
+            line-height: 66/40;
+
+            position: relative;
+
+            width: percentage(555/900);
+
+            .padding(3vh/@h,35vh/@h,_,105vh/@h);
+            &:before
+            {
+                z-index: 100;
+
+                content: '';
+
+                border: 3px solid @blue;
+                background-color: @white;
+
+                .size(6px);
+                .border-radius(50%);
+                .absolute(20vh/@h,_,_,0);
+            }
+            &:after
+            {
+                z-index: 50;
+
+                width: 2px;
+
+                content: '';
+
+                background-color: @blue;
+
+                .absolute(0,_,0,5px);
+            }
+            &:nth-child(2)
+            {
+                &:after
+                {
+                    top: 22vh/@h;
+                }
+            }
+            span
+            {
+                display: block;
+            }
+        }
+    }
+    // 时间线 end
+    // 默认状态 begin
+    &
+    {
+        .logo,
+        .title,
+        .corp-intro-box,
+        .timeline dt,
+        .timeline dd span,
+        {
+            opacity: 0;
+        }
+        .timeline dd:before
+        {
+            .scale(0);
+        }
+        .timeline dd:after
+        {
+            bottom: 100%;
+        }
+        .timeline:after,
+        .timeline dl:before,
+        .timeline dl:after
+        {
+            height: 0;
+        }
+    }
+    // 默认状态 end
+    // 播放 begin
+    &.play
+    {
+        // logo begin
+        .logo
+        {
+            .animation(corp-intro-0-logo 750ms ease forwards);
+        }
+        @keyframes corp-intro-0-logo
+        {
+            0%
+            {
+                opacity: 0;
+
+                .translate(0,15%);
+            }
+            100%
+            {
+                opacity: 1;
+
+                .translate(0,0);
+            }
+        }
+        // logo end
+        // 标题 begin
+        .title
+        {
+            .animation(corp-intro-0-logo 1000ms ease forwards 750ms);
+        }
+        // 标题 end
+        // 内容区 begin
+        .corp-intro-box
+        {
+            .animation(corp-intro-0-logo 750ms ease forwards 250ms);
+        }
+        // 内容区 end
+        // 时间线 begin
+        .timeline
+        {
+            // 线装饰 begin
+            &:after,
+            dl:after
+            {
+                .animation(corp-intro-0-timeline-line1 500ms ease forwards 4000ms);
+            }
+            @keyframes corp-intro-0-timeline-line1
+            {
+                0%
+                {
+                    height: 0;
+                }
+                100%
+                {
+                    height: 15vh/@h;
+                }
+            }
+            // 线装饰 end
+            // 点 begin
+            dd
+            {
+                &:nth-child(2)
+                {
+                    &:before
+                    {
+                        .animation(corp-intro-0-timeline-point 1000ms ease forwards 1500ms);
+                    }
+                }
+                &:nth-child(4)
+                {
+                    &:before
+                    {
+                        .animation(corp-intro-0-timeline-point 1000ms ease forwards 2000ms);
+                    }
+                }
+                &:nth-child(6)
+                {
+                    &:before
+                    {
+                        .animation(corp-intro-0-timeline-point 1000ms ease forwards 2500ms);
+                    }
+                }
+                &:nth-child(8)
+                {
+                    &:before
+                    {
+                        .animation(corp-intro-0-timeline-point 1000ms ease forwards 3000ms);
+                    }
+                }
+                &:nth-child(10)
+                {
+                    &:before
+                    {
+                        .animation(corp-intro-0-timeline-point 1000ms ease forwards 3500ms);
+                    }
+                }
+            }
+            @keyframes corp-intro-0-timeline-point
+            {
+                0%
+                {
+                    .scale(0);
+                }
+                50%
+                {
+                    .scale(1.5);
+                }
+                100%
+                {
+                    .scale(1);
+                }
+            }
+            // 点 end
+            // 线 begin
+            dd
+            {
+                &:nth-child(2)
+                {
+                    &:after
+                    {
+                        .animation(corp-intro-0-timeline-line 1000ms ease forwards 1500ms);
+                    }
+                }
+                &:nth-child(4)
+                {
+                    &:after
+                    {
+                        .animation(corp-intro-0-timeline-line 1000ms ease forwards 2000ms);
+                    }
+                }
+                &:nth-child(6)
+                {
+                    &:after
+                    {
+                        .animation(corp-intro-0-timeline-line 1000ms ease forwards 2500ms);
+                    }
+                }
+                &:nth-child(8)
+                {
+                    &:after
+                    {
+                        .animation(corp-intro-0-timeline-line 1000ms ease forwards 3000ms);
+                    }
+                }
+                &:nth-child(10)
+                {
+                    &:after
+                    {
+                        .animation(corp-intro-0-timeline-line 1000ms ease forwards 3500ms);
+                    }
+                }
+            }
+            @keyframes corp-intro-0-timeline-line
+            {
+                0%
+                {
+                    bottom: 100%;
+                }
+                100%
+                {
+                    bottom: 0;
+                }
+            }
+            // 线 end
+            // 年代 begin
+            dt
+            {
+                &:nth-child(1)
+                {
+                    .animation(corp-intro-0-timeline-dt 1000ms ease forwards 1500ms);
+                }
+                &:nth-child(3)
+                {
+                    .animation(corp-intro-0-timeline-dt 1000ms ease forwards 2000ms);
+                }
+                &:nth-child(5)
+                {
+                    .animation(corp-intro-0-timeline-dt 1000ms ease forwards 2500ms);
+                }
+                &:nth-child(7)
+                {
+                    .animation(corp-intro-0-timeline-dt 1000ms ease forwards 3000ms);
+                }
+                &:nth-child(9)
+                {
+                    .animation(corp-intro-0-timeline-dt 1000ms ease forwards 3500ms);
+                }
+            }
+            @keyframes corp-intro-0-timeline-dt
+            {
+                0%
+                {
+                    opacity: 0;
+
+                    .translate(10%,0);
+                }
+                100%
+                {
+                    opacity: 1;
+
+                    .translate(0,0);
+                }
+            }
+            // 年代 end
+            // 内容 begin
+            dd
+            {
+                &:nth-child(2)
+                {
+                    span
+                    {
+                        .animation(corp-intro-0-timeline-con 1000ms ease forwards 1500ms);
+                    }
+                }
+                &:nth-child(4)
+                {
+                    span
+                    {
+                        .animation(corp-intro-0-timeline-con 1000ms ease forwards 2000ms);
+                    }
+                }
+                &:nth-child(6)
+                {
+                    span
+                    {
+                        .animation(corp-intro-0-timeline-con 1000ms ease forwards 2500ms);
+                    }
+                }
+                &:nth-child(8)
+                {
+                    span
+                    {
+                        .animation(corp-intro-0-timeline-con 1000ms ease forwards 3000ms);
+                    }
+                }
+                &:nth-child(10)
+                {
+                    span
+                    {
+                        .animation(corp-intro-0-timeline-con 1000ms ease forwards 3500ms);
+                    }
+                }
+            }
+            @keyframes corp-intro-0-timeline-con
+            {
+                0%
+                {
+                    opacity: 0;
+
+                    .translate(-10%,0);
+                }
+                100%
+                {
+                    opacity: 1;
+
+                    .translate(0,0);
+                }
+            }
+            // 内容 end
+        }
+        // 时间线 end
+    }
+    // 播放 end
+}

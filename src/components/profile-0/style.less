@@ -1,0 +1,240 @@
+@import '../../../node_modules/less-plugin-est/src/all.less';
+@import '../../less/conf.less';
+
+/**
+ * 组件：
+ */
+.profile-0
+{
+    position: relative;
+
+    max-width: 1080vh/@h;
+
+    .size(100%);
+    .margin(_,auto);
+    > div
+    {
+        .size(100%);
+    }
+    // logo begin
+    .logo
+    {
+        border-top: 25vh/@h solid rgba(0,0,0,0);
+        background: url('@{_i}/44.png') no-repeat 0 0;
+        background-size: cover;
+
+        .size(199vh/@h,97vh/@h);
+        .margin(_,_,_,95vh/@h);
+    }
+    // logo end
+    // 文字 begin
+    .text
+    {
+        font-family: 'sszh';
+        font-size: 42vh/@h;
+        line-height: 88vh/@h;
+
+        position: relative;
+        z-index: 100;
+
+        .padding(70vh/@h,70vh/@h,_,70vh/@h);
+        p
+        {
+            white-space: nowrap;
+            text-indent: .1em;
+            letter-spacing: .1em;
+
+            .margin(0,_);
+            &:first-child
+            {
+                &:before
+                {
+                    font-size: 65vh/@h;
+
+                    content: '/';
+
+                    color: @blue;
+
+                    .margin(_,.5em,_,_);
+                }
+            }
+            &:last-child
+            {
+                &:after
+                {
+                    font-size: 65vh/@h;
+
+                    content: '/';
+
+                    color: @blue;
+
+                    .margin(_,_,_,.5em);
+                }
+            }
+        }
+        strong
+        {
+            font-size: 60vh/@h;
+            font-weight: normal;
+
+            color: @blue;
+
+            .margin(_,.1em);
+        }
+    }
+    // 文字 end
+    // 建筑物 begin
+    .building
+    {
+        z-index: 1;
+
+        background: url('@{_i}/4.png') no-repeat 0 0;
+        background-size: cover;
+
+        .size(1340vh/@h,590vh/@h);
+        .absolute(_,-130vh/@h,360vh/@h,-130vh/@h);
+    }
+    // 建筑物 end
+    // 气泡 begin
+    .bubble
+    {
+        z-index: 60;
+
+        background: url('@{_i}/3.png') no-repeat 0 0;
+        background-size: cover;
+
+        .size(289vh/@h,252vh/@h);
+        .absolute(_,_,896vh/@h,45vh/@h);
+    }
+    // 气泡 end
+    // 默认状态 begin
+    &
+    {
+        .logo,
+        .text p,
+        .building,
+        .people,
+        .bubble
+        {
+            opacity: 0;
+        }
+    }
+    // 默认状态 end
+    // 播放 begin
+    &.play
+    {
+        // logo begin
+        .logo
+        {
+            .animation(profile-0-logo 1000ms ease forwards);
+        }
+        @keyframes profile-0-logo
+        {
+            0%
+            {
+                opacity: 0;
+
+                .translate(0,15%);
+            }
+            100%
+            {
+                opacity: 1;
+
+                .translate(0,0);
+            }
+        }
+        // logo end
+        // 文字 begin
+        .text
+        {
+            p
+            {
+                .animation(profile-0-text 1000ms ease forwards 250ms);
+            }
+        }
+        @keyframes profile-0-text
+        {
+            0%
+            {
+                opacity: 0;
+
+                .translate(0,15%);
+            }
+            100%
+            {
+                opacity: 1;
+
+                .translate(0,0);
+            }
+        }
+        // 文字 end
+        // 建筑 begin
+        .building
+        {
+            .animation(profile-0-building 1000ms ease forwards 500ms);
+        }
+        @keyframes profile-0-building
+        {
+            0%
+            {
+                opacity: 0;
+
+                .translate(0,-15%);
+            }
+            100%
+            {
+                opacity: 1;
+
+                .translate(0,0);
+            }
+        }
+        // 建筑 end
+        // 人 begin
+        .people
+        {
+            .animation(profile-0-people 1000ms ease forwards 1000ms);
+        }
+        @keyframes profile-0-people
+        {
+            0%
+            {
+                opacity: 0;
+
+                .translate(0,15%);
+            }
+            100%
+            {
+                opacity: 1;
+
+                .translate(0,0);
+            }
+        }
+        // 人 end
+        // 气泡 begin
+        .bubble
+        {
+            .animation(profile-0-bubble 1000ms ease forwards 2000ms);
+        }
+        @keyframes profile-0-bubble
+        {
+            0%
+            {
+                opacity: 0;
+            }
+            100%
+            {
+                opacity: 1;
+            }
+        }
+        // 气泡 end
+    }
+    // 播放 end
+    // 人 begin
+    .people
+    {
+        max-height: 880vh/@h;
+
+        background-size: contain!important;
+    }
+    // 人 end
+}

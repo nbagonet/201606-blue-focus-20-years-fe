@@ -1,0 +1,231 @@
+@import '../../../node_modules/less-plugin-est/src/all.less';
+@import '../../less/conf.less';
+
+/**
+ * 组件：
+ */
+.corp-intro-1
+{
+    // 默认状态 begin
+    &
+    {
+        .logo,
+        .title,
+        .corp-intro-box,
+        .content dt,
+        .content dd
+        {
+            opacity: 0;
+        }
+    }
+    // 默认状态 end
+    // 播放 begin
+    &.play
+    {
+        // logo begin
+        .logo
+        {
+            .animation(corp-intro-1-logo 750ms ease forwards);
+        }
+        @keyframes corp-intro-1-logo
+        {
+            0%
+            {
+                opacity: 0;
+
+                .translate(0,15%);
+            }
+            100%
+            {
+                opacity: 1;
+
+                .translate(0,0);
+            }
+        }
+        // logo end
+        // 标题 begin
+        .title
+        {
+            .animation(corp-intro-1-logo 1000ms ease forwards 500ms);
+        }
+        // 标题 end
+        // 内容区 begin
+        .corp-intro-box
+        {
+            .animation(corp-intro-1-logo 750ms ease forwards 250ms);
+        }
+        // 内容区 end
+        .content li
+        {
+            &:nth-child(1)
+            {
+                dt
+                {
+                    .animation(corp-intro-1-rl 1000ms ease forwards 1000ms);
+                }
+                dd
+                {
+                    .animation(corp-intro-1-lr 1000ms ease forwards 1500ms);
+                }
+            }
+            &:nth-child(2)
+            {
+                dt
+                {
+                    .animation(corp-intro-1-lr 1000ms ease forwards 2000ms);
+                }
+                dd
+                {
+                    .animation(corp-intro-1-rl 1000ms ease forwards 2500ms);
+                }
+            }
+            &:nth-child(3)
+            {
+                dt
+                {
+                    .animation(corp-intro-1-rl 1000ms ease forwards 3000ms);
+                }
+                dd
+                {
+                    .animation(corp-intro-1-lr 1000ms ease forwards 3500ms);
+                }
+            }
+            @keyframes corp-intro-1-rl
+            {
+                0%
+                {
+                    opacity: 0;
+
+                    .translate(15%,0);
+                }
+                100%
+                {
+                    opacity: 1;
+
+                    .translate(0,0);
+                }
+            }
+            @keyframes corp-intro-1-lr
+            {
+                0%
+                {
+                    opacity: 0;
+
+                    .translate(-15%,0);
+                }
+                100%
+                {
+                    opacity: 1;
+
+                    .translate(0,0);
+                }
+            }
+        }
+    }
+    // 播放 end
+    // 图文 begin
+    .content
+    {
+        .padding(50vh/@h,20vh/@h,_,40vh/@h);
+        dl
+        {
+            .display(flex);
+            .align-items(center);
+        }
+        dt
+        {
+            .flex(none);
+            span
+            {
+                display: block;
+
+                background-repeat: no-repeat;
+                background-position: 0 0;
+                background-size: cover;
+            }
+        }
+        dd
+        {
+            font-size: 38vh/@h;
+            line-height: 66/40;
+
+            letter-spacing: .1em;
+            strong
+            {
+                font-size: 55vh/@h;
+
+                color: @blue;
+            }
+        }
+        li
+        {
+            &:nth-child(1)
+            {
+                dt
+                {
+                    width: 326vh/@h;
+
+                    .margin(_,25vh/@h,_,_);
+                    span
+                    {
+                        background-image: url('@{_i}/28.png');
+
+                        .size(326vh/@h,236vh/@h);
+                    }
+                }
+                dd
+                {
+                    width: 470vh/@h;
+                }
+            }
+            &:nth-child(2)
+            {
+                .margin(30vh/@h,_,_);
+                dl
+                {
+                    dt
+                    {
+                        .order(2);
+                    }
+                    dd
+                    {
+                        text-align: center;
+
+                        .order(1);
+                        .margin(-70vh/@h,-30vh/@h,_,_);
+                    }
+                }
+                dt
+                {
+                    span
+                    {
+                        background-image: url('@{_i}/29.png');
+
+                        .size(501vh/@h,399vh/@h);
+                    }
+                }
+            }
+            &:nth-child(3)
+            {
+                .margin(-77vh/@h,_,_);
+                dt
+                {
+                    width: 391vh/@h;
+
+                    .margin(_,-20vh/@h,_,_);
+                    span
+                    {
+                        background-image: url('@{_i}/62.png');
+
+                        .size(391vh/@h,486vh/@h);
+                    }
+                }
+                dd
+                {
+                    width: 450vh/@h;
+                }
+            }
+        }
+    }
+    // 图文 end
+}

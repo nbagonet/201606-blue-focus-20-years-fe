@@ -1,0 +1,78 @@
+@import '../../../node_modules/less-plugin-est/src/all.less';
+@import '../../less/conf.less';
+
+/**
+ * 组件：
+ */
+.corp-intro
+{
+    .size(100%);
+    .corp-intro-container
+    {
+        .size(100%);
+    }
+    .corp-intro-inner
+    {
+        overflow: hidden;
+
+        .size(100%);
+        .display(flex);
+        .align-items(center);
+        .justify-content(center);
+        .flex-direction(column);
+        .logo
+        {
+            background: url('@{_i}/44.png') no-repeat 0 0;
+            background-size: cover;
+
+            .size(289vh/@h,141vh/@h);
+            .margin(_,_,35vh/@h);
+        }
+        .corp-intro-box
+        {
+            border: 2px solid @blue;
+            background-color: @white;
+
+            .size(900vh/@h,1365vh/@h);
+            .title
+            {
+                text-align: center;
+                text-indent: .1em;
+                letter-spacing: .1em;
+
+                color: @blue;
+
+                .margin(45vh/@h,_);
+                h2,
+                h3
+                {
+                    font-size: 52vh/@h;
+
+                    .margin(0,_);
+                }
+                h2
+                {
+                    .display(flex);
+                    .align-items(center);
+                    .justify-content(center);
+                    span
+                    {
+                        .margin(_,30vh/@h,_,30vh/@h);
+                    }
+                    &:before,
+                    &:after
+                    {
+                        overflow: hidden;
+
+                        content: '/';
+
+                        // background-color: @blue;
+
+                        // .size(1px,60vh/@h);
+                        // .rotate(30deg);
+                    }
+                }
+            }
+        }
+    }
+}

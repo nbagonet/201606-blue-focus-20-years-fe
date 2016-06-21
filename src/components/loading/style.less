@@ -1,0 +1,111 @@
+@import '../../../node_modules/less-plugin-est/src/all.less';
+@import '../../less/conf.less';
+
+/**
+ * 组件：loading
+ */
+.loading
+{
+    overflow: hidden;
+
+    .size(100%);
+    .display(flex);
+    .align-items(center);
+    .justify-content(center);
+    .loading-box
+    {
+        border: 2px solid @blue;
+        background-color: @white;
+
+        .size(813vh/@h,1434vh/@h);
+    }
+    // 进度条 begin
+    .progress
+    {
+        position: relative;
+
+        .margin(100vh/@h,_);
+        .logo
+        {
+            z-index: 100;
+
+            background: url('@{_i}/45.png') no-repeat 50% 50%;
+            background-size: cover;
+
+            .size(410vh/@h,255vh/@h);
+            .absolute(50%,_,_,50%);
+            .translate(-44%,-54%);
+        }
+        .bar
+        {
+            overflow: hidden;
+
+            .size(512vh/@h);
+            .margin(_,auto);
+            canvas
+            {
+                display: block;
+
+                .size(100%);
+            }
+        }
+    }
+    // 进度条 end
+    // 标题 begin
+    .title
+    {
+        text-align: center;
+
+        color: @blue;
+
+        .margin(_,_,120vh/@h);
+        h2
+        {
+            font-size: 52vh/@h;
+            font-weight: 500;
+
+            letter-spacing: 12vh/@h;
+
+            .margin(0,_,40vh/@h);
+            .display(flex);
+            .align-items(center);
+            .justify-content(center);
+            &:before,
+            &:after
+            {
+                content: '/';
+
+                // background-color: @blue;
+                //
+                // .size(1px,60vh/@h);
+                // .rotate(30deg);
+            }
+            &:before
+            {
+                .margin(_,12vh/@h,_,_);
+            }
+            &:after
+            {
+                .margin(_,_,_,12vh/@h);
+            }
+        }
+        small
+        {
+            font-size: 47vh/@h;
+        }
+    }
+    // 标题 end
+    // 副标题 begin
+    .subtitle
+    {
+        font-size: 40vh/@h;
+        line-height: 66/40;
+
+        text-align: center;
+        li
+        {
+            animation-duration: 500ms;
+        }
+    }
+    // 副标题 end
+}

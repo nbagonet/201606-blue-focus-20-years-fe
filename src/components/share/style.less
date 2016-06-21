@@ -1,0 +1,164 @@
+@import '../../../node_modules/less-plugin-est/src/all.less';
+@import '../../less/conf.less';
+
+/**
+ * 组件：
+ */
+.share
+{
+    position: relative;
+    // max-width: 1080vh/@h;
+
+    .size(100%);
+    .margin(_,auto);
+    .display(flex);
+    .align-items(center);
+    .justify-content(center);
+    .flex-direction(column);
+    .share-inner
+    {
+        border: 2px solid @blue;
+        background-color: @white;
+
+        .size(900vh/@h,1530vh/@h);
+        .display(flex);
+        .align-items(center);
+        .justify-content(center);
+        .flex-direction(column);
+    }
+    .announce
+    {
+        font-size: 32vh/@h;
+
+        color: #555;
+
+        .padding(20vh/@h,_,_);
+    }
+    .text
+    {
+        font-size: 40vh/@h;
+        font-weight: 500;
+        line-height: 88/40;
+
+        text-align: center;
+        text-indent: .2em;
+        letter-spacing: .2em;
+
+        p
+        {
+            .margin(0);
+        }
+    }
+    .logo-b
+    {
+        background: url('@{_i}/45.png') no-repeat 50% 50%;
+        background-size: cover;
+
+        .size(612vh/@h,381vh/@h);
+        .margin(110vh/@h,auto,150vh/@h);
+    }
+    .button
+    {
+        width: 90%;
+        > a
+        {
+            font-family: 'sszh';
+            font-size: 45vh/@h;
+            font-weight: 300;
+
+            position: relative;
+
+            color: @blue;
+            border: 2px solid @blue;
+
+            .size(100%,135vh/@h);
+            .display(flex);
+            .margin(20vh/@h,_);
+            .justify-content(center);
+            .align-items(center);
+            &:after
+            {
+                content: '';
+
+                border: 1px solid @blue;
+
+                .absolute(5vh/@h,5vh/@h,5vh/@h,5vh/@h);
+            }
+        }
+    }
+    // 浮层 begin
+    .share-pop-1,
+    .share-pop-2
+    {
+        z-index: 99999;
+
+        background-color: rgba(0,0,0,.8);
+
+        .absolute(0,0,0,0);
+        .tips
+        {
+            font-size: 40vh/@h;
+
+            position: relative;
+
+            color: @blue;
+            border: 1px dashed @blue;
+
+            .size(710vh/@h,126vh/@h);
+            .display(flex);
+            .align-items(center);
+            .justify-content(center);
+            .margin(70vh/@h,_,_,50%);
+            .translate(-50%,0);
+            &:before
+            {
+                content: '';
+
+                border-right: 1px dashed @blue;
+                border-bottom: 1px dashed @blue;
+
+                .size(100vh/@h);
+                .absolute(_,_,50%,100%);
+            }
+            &:after
+            {
+                content: '';
+
+                border-right: 1px solid @blue;
+                border-bottom: 1px solid @blue;
+
+                .size(25vh/@h);
+                .rotate(-135deg);
+                .absolute(_,-118vh/@h,140vh/@h,_);
+            }
+        }
+        // &:after
+        // {
+        //     z-index: 99999;
+        //
+        //     content: '';
+        //
+        //     background-repeat: no-repeat;
+        //     background-position: 0 0;
+        //     background-size: cover;
+        //
+        //     .size(837vh/@h,181vh/@h);
+        //     .absolute(15vh/@h,45vh/@h,_,_);
+        // }
+    }
+    .share-pop-1
+    {
+        &:after
+        {
+            background-image: url('@{_i}/67.png');
+        }
+    }
+    .share-pop-2
+    {
+        &:after
+        {
+            background-image: url('@{_i}/68.png');
+        }
+    }
+    // 浮层 end
+}

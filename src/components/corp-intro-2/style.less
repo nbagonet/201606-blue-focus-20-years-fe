@@ -1,0 +1,280 @@
+@import '../../../node_modules/less-plugin-est/src/all.less';
+@import '../../less/conf.less';
+
+/**
+ * 组件：
+ */
+.corp-intro-2
+{
+    // 默认状态 begin
+    &
+    {
+        .logo,
+        .title,
+        .corp-intro-box,
+        .content dt,
+        .content dd
+        {
+            opacity: 0;
+        }
+    }
+    // 默认状态 end
+    // 播放 begin
+    &.play
+    {
+        // logo begin
+        .logo
+        {
+            .animation(corp-intro-2-logo 750ms ease forwards);
+        }
+        @keyframes corp-intro-2-logo
+        {
+            0%
+            {
+                opacity: 0;
+
+                .translate(0,15%);
+            }
+            100%
+            {
+                opacity: 1;
+
+                .translate(0,0);
+            }
+        }
+        // logo end
+        // 标题 begin
+        .title
+        {
+            .animation(corp-intro-2-logo 1000ms ease forwards 1300ms);
+        }
+        // 标题 end
+        // 内容区 begin
+        .corp-intro-box
+        {
+            .animation(corp-intro-2-logo 1000ms ease forwards 500ms);
+        }
+        // 内容区 end
+        .content li
+        {
+            &:nth-child(1)
+            {
+                dt
+                {
+                    .animation(corp-intro-2-rl 1000ms ease forwards 1500ms);
+                }
+                dd
+                {
+                    .animation(corp-intro-2-lr 1000ms ease forwards 2000ms);
+                }
+            }
+            &:nth-child(2)
+            {
+                dt
+                {
+                    .animation(corp-intro-2-lr 1000ms ease forwards 2500ms);
+                }
+                dd
+                {
+                    .animation(corp-intro-2-rl 1000ms ease forwards 3000ms);
+                }
+            }
+            &:nth-child(3)
+            {
+                dt
+                {
+                    .animation(corp-intro-2-rl 1000ms ease forwards 3500ms);
+                }
+                dd
+                {
+                    .animation(corp-intro-2-lr 1000ms ease forwards 4000ms);
+                }
+            }
+            &:nth-child(4)
+            {
+                dt
+                {
+                    .animation(corp-intro-2-lr 1000ms ease forwards 4500ms);
+                }
+                dd
+                {
+                    .animation(corp-intro-2-rl 1000ms ease forwards 5000ms);
+                }
+            }
+            @keyframes corp-intro-2-rl
+            {
+                0%
+                {
+                    opacity: 0;
+
+                    .translate(15%,0);
+                }
+                100%
+                {
+                    opacity: 1;
+
+                    .translate(0,0);
+                }
+            }
+            @keyframes corp-intro-2-lr
+            {
+                0%
+                {
+                    opacity: 0;
+
+                    .translate(-15%,0);
+                }
+                100%
+                {
+                    opacity: 1;
+
+                    .translate(0,0);
+                }
+            }
+        }
+    }
+    // 播放 end
+    // 图文 begin
+    .content
+    {
+        .padding(50vh/@h,20vh/@h,_,40vh/@h);
+        dl
+        {
+            .display(flex);
+            .align-items(center);
+        }
+        dt
+        {
+            .flex(none);
+            .translate(0,0);
+            span
+            {
+                display: block;
+
+                background-repeat: no-repeat;
+                background-position: 0 0;
+                background-size: cover;
+            }
+        }
+        dd
+        {
+            font-size: 38vh/@h;
+            line-height: 60/40;
+
+            // letter-spacing: .1em;
+            // text-indent: .1em;
+            strong
+            {
+                font-size: 55vh/@h;
+
+                color: @blue;
+            }
+        }
+        li
+        {
+            &:nth-child(1)
+            {
+                dt
+                {
+                    width: 322vh/@h;
+
+                    .margin(_,20vh/@h,_,_);
+                    span
+                    {
+                        background-image: url('@{_i}/22.png');
+
+                        .size(322vh/@h,353vh/@h);
+                    }
+                }
+                dd
+                {
+                    width: 470vh/@h;
+                }
+            }
+            &:nth-child(2)
+            {
+                .margin(-30vh/@h,_,_);
+                dl
+                {
+                    dt
+                    {
+                        .order(2);
+                    }
+                    dd
+                    {
+                        text-align: center;
+
+                        .order(1);
+                    }
+                }
+                dt
+                {
+                    width: 317vh/@h;
+
+                    .margin(-30vh/@h,_,_);
+                    span
+                    {
+                        background-image: url('@{_i}/61.png');
+
+                        .size(317vh/@h,317vh/@h);
+                    }
+                }
+                dd
+                {
+                    width: 510vh/@h;
+                }
+            }
+            &:nth-child(3)
+            {
+                dt
+                {
+                    width: 374vh/@h;
+
+                    .margin(_,10vh/@h,_,_);
+                    span
+                    {
+                        background-image: url('@{_i}/8.png');
+
+                        .size(374vh/@h,226vh/@h);
+                    }
+                }
+                dd
+                {
+                    width: 460vh/@h;
+                }
+            }
+            &:nth-child(4)
+            {
+                dl
+                {
+                    dt
+                    {
+                        .order(2);
+                        .margin(_,_,_,40vh/@h);
+                    }
+                    dd
+                    {
+                        .order(1);
+                    }
+                }
+                dt
+                {
+                    width: 357vh/@h;
+
+                    .margin(_,10vh/@h,_,_);
+                    span
+                    {
+                        background-image: url('@{_i}/32.png');
+
+                        .size(357vh/@h,313vh/@h);
+                    }
+                }
+                dd
+                {
+                    width: 460vh/@h;
+                }
+            }
+        }
+    }
+    // 图文 end
+}

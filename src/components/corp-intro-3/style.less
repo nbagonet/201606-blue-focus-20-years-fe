@@ -1,0 +1,274 @@
+@import '../../../node_modules/less-plugin-est/src/all.less';
+@import '../../less/conf.less';
+
+/**
+ * 组件：
+ */
+.corp-intro-3
+{
+    // 默认状态 begin
+    &
+    {
+        .logo,
+        .title,
+        .corp-intro-box,
+        .content dt,
+        .content dd
+        {
+            opacity: 0;
+        }
+    }
+    // 默认状态 end
+    // 播放 begin
+    &.play
+    {
+        // logo begin
+        .logo
+        {
+            .animation(corp-intro-3-logo 1000ms ease forwards);
+        }
+        @keyframes corp-intro-3-logo
+        {
+            0%
+            {
+                opacity: 0;
+
+                .translate(0,15%);
+            }
+            100%
+            {
+                opacity: 1;
+
+                .translate(0,0);
+            }
+        }
+        // logo end
+        // 标题 begin
+        .title
+        {
+            .animation(corp-intro-3-logo 1000ms ease forwards 750ms);
+        }
+        // 标题 end
+        // 内容区 begin
+        .corp-intro-box
+        {
+            .animation(corp-intro-3-logo 1000ms ease forwards 500ms);
+        }
+        // 内容区 end
+        .content li
+        {
+            &:nth-child(1)
+            {
+                dt
+                {
+                    .animation(corp-intro-3-rl 1000ms ease forwards 1000ms);
+                }
+                dd
+                {
+                    .animation(corp-intro-3-lr 1000ms ease forwards 1500ms);
+                }
+            }
+            &:nth-child(2)
+            {
+                dt
+                {
+                    .animation(corp-intro-3-lr 1000ms ease forwards 2000ms);
+                }
+                dd
+                {
+                    .animation(corp-intro-3-rl 1000ms ease forwards 2500ms);
+                }
+            }
+            &:nth-child(3)
+            {
+                dt
+                {
+                    .animation(corp-intro-3-rl 1000ms ease forwards 3000ms);
+                    &:after
+                    {
+                        transform-origin: 45% 68%;
+
+                        .animation(corp-intro-3-zoom 4000ms ease-in-out infinite 3500ms);
+                    }
+                }
+                dd
+                {
+                    .animation(corp-intro-3-lr 1000ms ease forwards 3500ms);
+                }
+            }
+            @keyframes corp-intro-3-zoom
+            {
+                0%,
+                100%
+                {
+                    opacity: .2;
+
+                    .scale(.2);
+                }
+                40%,
+                50%
+                {
+                    opacity: 1;
+
+                    .scale(1);
+                }
+            }
+            @keyframes corp-intro-3-rl
+            {
+                0%
+                {
+                    opacity: 0;
+
+                    .translate(15%,0);
+                }
+                100%
+                {
+                    opacity: 1;
+
+                    .translate(0,0);
+                }
+            }
+            @keyframes corp-intro-3-lr
+            {
+                0%
+                {
+                    opacity: 0;
+
+                    .translate(-15%,0);
+                }
+                100%
+                {
+                    opacity: 1;
+
+                    .translate(0,0);
+                }
+            }
+        }
+    }
+    // 播放 end
+    // 图文 begin
+    .content
+    {
+        .padding(_,20vh/@h,_,40vh/@h);
+        dl
+        {
+            .display(flex);
+            .align-items(center);
+        }
+        dt
+        {
+            position: relative;
+
+            .flex(none);
+            span
+            {
+                display: block;
+
+                background-repeat: no-repeat;
+                background-position: 0 0;
+                background-size: cover;
+            }
+        }
+        dd
+        {
+            font-size: 38vh/@h;
+            line-height: 60/40;
+
+            letter-spacing: 1px;
+            text-indent: 1px;
+            strong
+            {
+                font-size: 55vh/@h;
+
+                color: @blue;
+            }
+        }
+        li
+        {
+            &:nth-child(1)
+            {
+                dt
+                {
+                    .margin(_,25vh/@h,_,_);
+                    width:382vh/@h;
+                    span
+                    {
+                        background-image: url('@{_i}/23.png');
+
+                        .size(382vh/@h,337vh/@h);
+                    }
+                }
+                dd{
+                  width:440vh/@h;
+                }
+            }
+            &:nth-child(2)
+            {
+                .margin(30vh/@h,_,_);
+                dl
+                {
+                    dt
+                    {
+                        .order(2);
+                    }
+                    dd
+                    {
+                        line-height: 1.2;
+
+                        text-align: center;
+
+                        .order(1);
+                        .margin(-20vh/@h,-30vh/@h,_,-30vh/@h);
+                    }
+                }
+                dt
+                {
+                    span
+                    {
+                        background-image: url('@{_i}/6.png');
+
+                        .size(499vh/@h,292vh/@h);
+                    }
+                }
+            }
+            &:nth-child(3)
+            {
+                .margin(60vh/@h,_,_);
+                dt
+                {
+                    .padding(_,80vh/@h,_,_);
+                    .margin(_,30vh/@h,_,_);
+                    width:276vh/@h;
+                    span
+                    {
+                        position: relative;
+                        z-index: 100;
+
+                        background-image: url('@{_i}/63.png');
+
+                        .size(276vh/@h,370vh/@h);
+                    }
+                    &:after
+                    {
+                        z-index: 50;
+
+                        content: '';
+
+                        opacity: 0;
+                        background-color: #7fcef4;
+
+                        .size(165vh/@h);
+                        .absolute(0,0,_,_);
+                        .border-radius(50%);
+                    }
+                }
+                dd
+                {
+                    text-align: justify;
+                    width:440vh/@h;
+                }
+            }
+        }
+    }
+    // 图文 end
+}
