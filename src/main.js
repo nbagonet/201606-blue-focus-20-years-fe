@@ -34,3 +34,10 @@ new Vue({
   el: 'body',
   components: { App }
 })
+
+/**
+ * viewport-units-buggyfill
+ */
+import viewportUnitsBuggyfill from 'viewport-units-buggyfill'
+console.log(viewportUnitsBuggyfill)
+viewportUnitsBuggyfill.init()

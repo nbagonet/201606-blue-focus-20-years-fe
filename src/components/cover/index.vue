@@ -13,6 +13,7 @@
       ul.logo-b-btxt
         - for(var i=0; i<4; i++)
           li
+            span
       //- 线条
       ul.logo-b-line
         - for(var i=0; i<11; i++)
