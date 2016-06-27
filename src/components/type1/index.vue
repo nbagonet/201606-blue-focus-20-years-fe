@@ -8,6 +8,11 @@
 
   //- 信息
   //- profile(v-if="step === 'profile'" transition="fade")
+
+  //- 背景音乐
+  .bgaudio.play(v-show="playAudio" v-on:click="bgAudio(false)")
+    audio#bgaudio.none(src="../../../static/media/0.mp3" loop)
+  .bgaudio.stop(v-show="!playAudio" v-on:click="bgAudio(true)")
 </template>
 
 <style lang="less">
@@ -15,7 +20,7 @@
 </style>
 
 <script>
-import { setStep } from '../../vuex/action'
+import { setStep, bgAudio, bgAudioAutoPlay } from '../../vuex/action'
 
 import Cover from '../cover'
 import CorpIntro from '../corp-intro'
@@ -25,13 +30,15 @@ module.exports = {
   name: 'type1',
   vuex: {
     getters: {
-      step: state => state.step
+      step: state => state.step,
+      playAudio: state => state.playAudio
     },
-    actions: { setStep }
+    actions: { setStep, bgAudio, bgAudioAutoPlay }
   },
   components: { Cover, CorpIntro, Profile },
   created: function () {
     this.setStep('cover')
+    this.bgAudioAutoPlay()
   }
 }
 </script>

@@ -140,6 +140,41 @@ dd
 }
 
 /**
+ * 音乐播放
+ */
+.bgaudio
+{
+    z-index: 1000;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .size(91vh/@h,91vh/@h);
+    .absolute(45vh/@h,45vh/@h,auto,auto)!important;
+    &.play
+    {
+        background-image: url('@{_i}/74.png');
+
+        .animation(bgaudio-play 1500ms linear infinite);
+        @keyframes bgaudio-play
+        {
+            0%
+            {
+                .rotate(0deg);
+            }
+            100%
+            {
+                .rotate(360deg);
+            }
+        }
+    }
+    &.stop
+    {
+        background-image: url('@{_i}/75.png');
+    }
+}
+
+/**
  * 特殊字体
  */
 .font-face('sszh', '/static/font/sszh');

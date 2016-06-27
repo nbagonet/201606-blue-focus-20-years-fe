@@ -29,7 +29,7 @@ export const loadImages = ({ dispatch, state }) => {
   const _baseUrl = '/static/img/1/'
   // const _suffix = '.png?_v=' + new Date().getTime()
   const _suffix = '.png'
-  const _picNumber = 73
+  const _picNumber = 75
   const _loader = new window.PxLoader()
 
   for (let i = 0; i <= _picNumber; i++) {
@@ -423,4 +423,27 @@ export const showSlide = ({ dispatch, state }, fields, component) => {
       return
     }
   }
+}
+
+export const bgAudio = ({dispatch, state}, play) => {
+  dispatch('PLAY_AUDIO', play)
+  if (!play) {
+    console.log('停止播放背景音乐')
+    $('#bgaudio')[0].pause()
+  } else {
+    console.log('开始播放背景音乐')
+    $('#bgaudio')[0].play()
+  }
+}
+
+export const bgAudioAutoPlay = () => {
+  $('#bgaudio')[0].play()
+  document.addEventListener('WeixinJSBridgeReady', function () {
+    window.WeixinJSBridge.invoke('getNetworkType', {}, function (e) {
+      $('#bgaudio')[0].play()
+    })
+  }, false)
+  // $(document).on('touchstart', function () {
+  $('#bgaudio')[0].play()
+  // })
 }

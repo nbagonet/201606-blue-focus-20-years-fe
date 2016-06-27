@@ -7,6 +7,7 @@ const state = {
   loadingAnimateing: true,
   isLogin: false,
   posting: false,
+  playAudio: true,
 
   // 类别：
   // 0：自己看
@@ -152,6 +153,10 @@ const mutations = {
 
   SET_POSTING (state, posting) {
     state.posting = posting
+  },
+
+  PLAY_AUDIO (state, play) {
+    state.playAudio = play
   }
 }
 
